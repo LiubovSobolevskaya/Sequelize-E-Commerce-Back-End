@@ -16,6 +16,7 @@ ______________
 * [JavaScript](https://www.javascript.com/)   
 * [Node.js](https://nodejs.dev/)
 * [MySQL](https://www.mysql.com/)
+* [Sequelize](https://sequelize.org/)
 
 ## Requirements
 
@@ -36,7 +37,7 @@ npm install
 ## Author Info
 
 ### Liubov Sobolevskaya
-* [LinkedIn](https://www.linkedin.com/in/liubov-sobolevskaya-45756a101/)
+* [LinkedIn](https://www.linkedin.com/in/liubov-sobolevskaya/)
 * [Github](https://github.com/LiubovSobolevskaya)
 * [Kaggle](https://www.kaggle.com/lyubovsobolevskaya)
 
