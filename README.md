@@ -7,10 +7,6 @@ Using a functional Express.js API, connect it to a database using Sequelize by a
 
 Insomnia is used to test the API routes. When you open API GET routes for categories, products, or tags, the data for each route will be displayed in a formatted JSON. You can also test API POST, PUT, and DELETE routes in Insomnia to create, update, and delete data in your database.
 ______________
-## Disclaimer 
-![](imgs/duplicates.png)
-
-Unfortanetly, I could not get rid of this camelCase duplicates created by Sequelize. Even after an extensive search for a solution. 
 
 ## Technology Used 
    
@@ -30,7 +26,7 @@ DB_NAME='ecommerce_db'
 DB_USER=<ADD USER HERE>
 DB_PASSWORD=<ADD YOUR PASSWORD HERE>
 ```
-
+Using comand line or a tool of your choice run MySQL commands from ```db/schema.sql```. 
 Run
 ```
 npm install
