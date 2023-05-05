@@ -1,20 +1,23 @@
+// Import necessary parts of the Sequelize library
 const { Model, DataTypes } = require('sequelize');
 
-// Import database connection from config.js
+// Import the database connection from config.js
 const sequelize = require('../config/connection');
 
-// Initialize ProductTag model by extending off Sequelize's Model class
+// Define the ProductTag model by extending off Sequelize's Model class
 class ProductTag extends Model {}
 
-// Set up fields and rules for ProductTag model
+// Set up the fields and rules for the ProductTag model
 ProductTag.init(
   {
+    // Define the id field with type INTEGER, allowNull false, primaryKey true, and autoIncrement true
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
+    // Define the product_id field with type INTEGER, and a foreign key reference to the Product model's id field
     product_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -23,6 +26,7 @@ ProductTag.init(
         unique: false
       }
     },
+    // Define the tag_id field with type INTEGER, and a foreign key reference to the Tag model's id field
     tag_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -30,17 +34,21 @@ ProductTag.init(
         key: 'id',
         unique: false
       }
-    },
-    
+    }
   },
   {
+    // Define the sequelize instance to use for the model
     sequelize,
+    // Disable timestamps
     timestamps: false,
+    // Use "product_tag" as the table name in the database
     freezeTableName: true,
-    underscoredAll: true,
-    camelCase: false,
+    // Use underscores instead of camelCase for column names
+    underscored: true,
+    // Define the name of the model in the database
     modelName: 'product_tag',
   }
 );
 
+// Export the ProductTag model for use in other parts of the application
 module.exports = ProductTag;

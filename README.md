@@ -5,7 +5,7 @@ Please visit the [Walkthrough video](https://drive.google.com/file/d/108q8cG13RX
 ## Desciption
 Using a functional Express.js API, connect it to a database using Sequelize by adding your database name, MySQL username, and MySQL password to an environment variable file. Then, you can create a development database by entering schema and seed commands to seed it with test data. When you invoke the application, your server will start and the Sequelize models will sync to the MySQL database.
 
-You can use Insomnia to test your API routes. When you open API GET routes for categories, products, or tags, the data for each route will be displayed in a formatted JSON. You can also test API POST, PUT, and DELETE routes in Insomnia to create, update, and delete data in your database.
+Insomnia is used to test your API routes. When you open API GET routes for categories, products, or tags, the data for each route will be displayed in a formatted JSON. You can also test API POST, PUT, and DELETE routes in Insomnia to create, update, and delete data in your database.
 ______________
 ## Disclaimer 
 ![](imgs/duplicates.png)
