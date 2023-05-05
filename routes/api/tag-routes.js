@@ -1,13 +1,13 @@
+// Import required modules
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
-// The `/api/tags` endpoint
+// GET route to retrieve all tags and their associated products
 router.get('/', async (req, res) => {
-  // find all tags
-  // be sure to include its associated Product data
+
   try {
     const tagData = await Tag.findAll({
-      // Add Book as a second model to JOIN with
+
       include: [{model: Product, through: ProductTag, as: 'products'}],
       
     });
@@ -17,9 +17,9 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET route to retrieve a single tag and its associated products based on ID
 router.get('/:id', async (req, res) => {
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
+
   try {
     const tagData = await Tag.findByPk(req.params.id, {
       include: [{ model: Product, through: ProductTag, as: 'products'}],
@@ -36,8 +36,9 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// POST route to create a new tag
 router.post('/', async (req, res) => {
-  // create a new tag
+
   try {
     const tagData = await Tag.create(req.body);
     res.status(200).json(tagData);
@@ -46,6 +47,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// PUT route to update an existing tag based on ID
 router.put('/:id', async (req, res) => {
   try {
     const tagData = Tag.update(req.body, {
@@ -62,15 +64,15 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// DELETE route to delete an existing tag based on ID
 router.delete('/:id', async (req, res) => {
-  // delete on tag by its `id` value
+
   try {
     const tagData = await Tag.destroy({
       where: {
         id: req.params.id,
       },
   
-
     });
 
     if (!tagData) {
@@ -78,7 +80,7 @@ router.delete('/:id', async (req, res) => {
       return;
     }
 
-        res.status(200).json(
+    res.status(200).json(
       {
           message: "Successfully deleted",
           data: tagData
@@ -88,4 +90,5 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Export the router
 module.exports = router;

@@ -6,36 +6,34 @@ const ProductTag = require('./ProductTag');
 
 // Products belongsTo Category
 Product.belongsTo(Category, {
-  foreignKey: 'category_id',
-  onDelete: 'CASCADE',
+  foreignKey: 'category_id', // foreign key to the category table
+  onDelete: 'CASCADE', // if a category is deleted, also delete associated products
 });
 
 // Categories have many Products
 Category.hasMany(Product, {
-  foreignKey: 'category_id',
-  onDelete: 'CASCADE',
+  foreignKey: 'category_id', // foreign key from the product table
+  onDelete: 'CASCADE', // if a category is deleted, also delete associated products
 });
+
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
   through: {
-    model: ProductTag,    
-    unique: false,
-    foreignKey: 'product_id',
+    model: ProductTag, // join table between product and tag
+    unique: false, // allow duplicates
+    foreignKey: 'product_id', // foreign key to the product table
   },
-  as: 'tags'
+  as: 'tags' // alias for the tags
 });
+
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
-  // Define the third table needed to store the foreign keys
   through: {
-    model:  ProductTag,
-    //field referenced in the association must have a unique constraint placed on it. 
-    unique: false,
-    foreignKey: 'tag_id',
+    model:  ProductTag, // join table between tag and product
+    unique: false, // allow duplicates
+    foreignKey: 'tag_id', // foreign key to the tag table
   },
-  // Define an alias for when data is retrieved
-  //call this whatever you link - related to how the data will be returned (which key)
-  as: 'products'
+  as: 'products' // alias for the products
 });
 
 module.exports = {
