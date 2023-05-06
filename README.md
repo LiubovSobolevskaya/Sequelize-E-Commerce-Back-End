@@ -2,6 +2,7 @@
 11th Assignment of UCB Extension Web Development Bootcamp
 
 Please visit the [Walkthrough video](https://drive.google.com/file/d/108q8cG13RXUC1fzZ5HlA1en3FA333Sa2/view?usp=share_link)
+
 ## Desciption
 Using a functional Express.js API, connect it to a database using Sequelize by adding your database name, MySQL username, and MySQL password to an environment variable file. Then, you can create a development database by entering schema and seed commands to seed it with test data. When you invoke the application, your server will start and the Sequelize models will sync to the MySQL database.
 
